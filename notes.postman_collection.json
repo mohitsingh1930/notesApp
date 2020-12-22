@@ -1,0 +1,799 @@
+{
+	"info": {
+		"_postman_id": "7f733b7f-4d83-4745-b69b-8bc05e24a6ed",
+		"name": "notes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get attachment ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/notes/attachment?attachment=1608189352864.jpeg",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"notes",
+						"attachment"
+					],
+					"query": [
+						{
+							"key": "attachment",
+							"value": "1608189352864.jpeg"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get note by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/notes?id=5fe19124c18b9328508832df",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"notes"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5fe19124c18b9328508832df"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a note with all attachments",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"5fdb4f4f8b3d3a3d6cd5fda0\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/notes/delete",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"notes",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all notes without body",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/notes/all",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"notes",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a note",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Note 2",
+							"type": "text"
+						},
+						{
+							"key": "body",
+							"value": "This is the body of Note 2.\nThis is a test note.",
+							"type": "text"
+						},
+						{
+							"key": "remindAt",
+							"value": "2020-11-22 13:55:00",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/mohitsingh1930/Desktop/Node practice/notesApp/temp/file1.txt"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/mohitsingh1930/Desktop/Node practice/notesApp/temp/file2.txt"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/notes/add",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"notes",
+						"add"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a note without files",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Note 1",
+									"type": "text"
+								},
+								{
+									"key": "body",
+									"value": "This is the body of Note 1.\nThis is a test note.",
+									"type": "text"
+								},
+								{
+									"key": "remindAt",
+									"value": "2020-11-22 11:55:00",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/notes/add",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"notes",
+								"add"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "317"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"13d-NxBPCNOMiXncezVaY1hMzj05FW4\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Dec 2020 06:23:21 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"msg\": \"Note added\",\n    \"result\": {\n        \"dateCreated\": \"2020-12-22T06:17:55.977Z\",\n        \"dateModified\": \"2020-12-22T06:17:55.977Z\",\n        \"attachments\": [],\n        \"isRemoved\": false,\n        \"seen\": false,\n        \"_id\": \"5fe190d9c18b9328508832de\",\n        \"title\": \"Note 1\",\n        \"body\": \"This is the body of Note 1.\\nThis is a test note.\",\n        \"remindAt\": \"2020-11-22T06:25:00.000Z\",\n        \"__v\": 0\n    }\n}"
+				},
+				{
+					"name": "Add a note with files",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Note 2",
+									"type": "text"
+								},
+								{
+									"key": "body",
+									"value": "This is the body of Note 2.\nThis is a test note.",
+									"type": "text"
+								},
+								{
+									"key": "remindAt",
+									"value": "2020-11-22 13:55:00",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/mohitsingh1930/Desktop/Node practice/notesApp/temp/file1.txt"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/mohitsingh1930/Desktop/Node practice/notesApp/temp/file2.txt"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/notes/add",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"notes",
+								"add"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "356"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"164-Z795q+41fZUcni82ga+G9TRL11k\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Dec 2020 06:24:36 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"msg\": \"Note added\",\n    \"result\": {\n        \"dateCreated\": \"2020-12-22T06:17:55.977Z\",\n        \"dateModified\": \"2020-12-22T06:17:55.977Z\",\n        \"attachments\": [\n            \"1608618276859.txt\",\n            \"1608618276941.txt\"\n        ],\n        \"isRemoved\": false,\n        \"seen\": false,\n        \"_id\": \"5fe19124c18b9328508832df\",\n        \"title\": \"Note 2\",\n        \"body\": \"This is the body of Note 2.\\nThis is a test note.\",\n        \"remindAt\": \"2020-11-22T08:25:00.000Z\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Update note without attachment",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "5fe19124c18b9328508832df",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "Note 2 updated",
+							"type": "text"
+						},
+						{
+							"key": "body",
+							"value": "This is the updated version of Note 1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "remindAt",
+							"value": "2020-12-22 13:55:00",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/notes/update",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"notes",
+						"update"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Note updated",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "5fe19124c18b9328508832df",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "Note 2 updated",
+									"type": "text"
+								},
+								{
+									"key": "body",
+									"value": "This is the updated version of Note 1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "remindAt",
+									"value": "2020-12-18 12:00:00",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/notes/update",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"notes",
+								"update"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "30"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1e-bLOcy18QbhB4euIXCNRarSjaYOM\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Dec 2020 06:28:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"msg\": \"updated successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add an attachment",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "5fe19124c18b9328508832df",
+							"type": "text"
+						},
+						{
+							"key": "fileName",
+							"type": "file",
+							"src": "/home/mohitsingh1930/Desktop/Node practice/notesApp/temp/file3.txt"
+						},
+						{
+							"key": "fileName",
+							"type": "file",
+							"src": "/home/mohitsingh1930/Desktop/Node practice/notesApp/temp/file4.txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/notes/addAttachment",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"notes",
+						"addAttachment"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "new files added",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "5fe19124c18b9328508832df",
+									"type": "text"
+								},
+								{
+									"key": "fileName",
+									"type": "file",
+									"src": "/home/mohitsingh1930/Desktop/Node practice/notesApp/temp/file3.txt"
+								},
+								{
+									"key": "fileName",
+									"type": "file",
+									"src": "/home/mohitsingh1930/Desktop/Node practice/notesApp/temp/file4.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/notes/addAttachment",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"notes",
+								"addAttachment"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "30"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1e-bLOcy18QbhB4euIXCNRarSjaYOM\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Dec 2020 06:34:22 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"msg\": \"updated successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete an attachment",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "5fe19124c18b9328508832df",
+							"type": "text"
+						},
+						{
+							"key": "fileName",
+							"value": "1608618862346.txt",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/notes/deleteAttachment",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"notes",
+						"deleteAttachment"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Deleted an attachment",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "5fe19124c18b9328508832df",
+									"type": "text"
+								},
+								{
+									"key": "fileName",
+									"value": "1608618862346.txt",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/notes/deleteAttachment",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"notes",
+								"deleteAttachment"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "30"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1e-id8K9JOC5HbMBHet9exu8FzVPow\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Dec 2020 06:36:25 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"msg\": \"deleted successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Search notes by title",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/notes/search?title=ote",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"notes",
+						"search"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "ote"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "search with any substring",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/notes/search?title=ote",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"notes",
+								"search"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "ote"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "377"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"179-kfDlDaFND9ItLVUO2ocxxIxgwus\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Dec 2020 06:37:07 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"notes\": [\n        {\n            \"dateCreated\": \"2020-12-22T06:17:55.977Z\",\n            \"dateModified\": \"2020-12-22T06:17:55.977Z\",\n            \"seen\": false,\n            \"_id\": \"5fe190d9c18b9328508832de\",\n            \"title\": \"Note 1\",\n            \"remindAt\": \"11/22/2020, 11:55\"\n        },\n        {\n            \"dateCreated\": \"2020-12-22T06:17:55.977Z\",\n            \"dateModified\": \"2020-12-22T06:28:08.041Z\",\n            \"seen\": false,\n            \"_id\": \"5fe19124c18b9328508832df\",\n            \"title\": \"Note 2 updated\",\n            \"remindAt\": \"11/22/2020, 13:55\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get pending reminders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/notes/pending",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"notes",
+						"pending"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "list of reminders that are expired",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/notes/pending",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"notes",
+								"pending"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "198"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c6-vXZElwpw7mTxoCaKWRQTf2Q7d4U\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Dec 2020 06:40:45 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"notes\": [\n        {\n            \"dateCreated\": \"2020-12-22T06:17:55.977Z\",\n            \"dateModified\": \"2020-12-22T06:40:27.949Z\",\n            \"seen\": false,\n            \"_id\": \"5fe190d9c18b9328508832de\",\n            \"title\": \"Note 2 updated\",\n            \"remindAt\": \"12/22/2020, 11:55\"\n        }\n    ]\n}"
+				}
+			]
+		}
+	],
+	"protocolProfileBehavior": {}
+}
